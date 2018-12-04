@@ -10,7 +10,15 @@ import com.xyc.springmvc.pojo.Items;
  *
  */
 public interface ItemService {
-
+	/**
+	 * 查询商品列表
+	 * @return
+	 */
 	List<Items> selectItemList();
+
+	Items queryItemById(Integer id);
+	
+	//根据id修改商品
+	void updateItemById(Items items);
 
 }

@@ -1,5 +1,6 @@
 package com.xyc.springmvc.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,13 +18,24 @@ import com.xyc.springmvc.pojo.Items;
 @Service
 public class ItemServiceImpl implements ItemService{
 	 
-	@Resource(name="itemsMapper")
+	@Resource
 	private ItemsMapper itemsMapper;
 
 	@Override
 	public List<Items> selectItemList() {
-		List<Items> list = itemsMapper.selectByExample(null);
+		List<Items> list = itemsMapper.selectByExampleWithBLOBs(null);
 		return list;
+	}
+
+	@Override
+	public Items queryItemById(Integer id) {
+		Items item = itemsMapper.selectByPrimaryKey(id);
+		return item;
+	}
+
+	@Override
+	public void updateItemById(Items items) {
+		itemsMapper.updateByPrimaryKeySelective(items);
 	}
 	
 	
