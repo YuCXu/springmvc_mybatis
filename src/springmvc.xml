@@ -17,8 +17,7 @@
 	<mvc:annotation-driven conversion-service="conversionService"/> 
 	
 	<!-- 转换器设置 -->
-	<bean id="conversionService" class="org.springframework.format.
-	           support.FormattingConversionServiceFactoryBean">
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<set>
 				<bean class="com.xyc.springmvc.converter.DateConverter"></bean>
